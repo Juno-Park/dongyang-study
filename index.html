@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>동양사상입문 스마트 훈련소</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div id="app-container">
+  <header>
+    <h1>⛩️ 동양사상입문 스마트 훈련소</h1>
+    <p>직접 입력 & 1개념 4변주 다각도 완전정복 시스템</p>
+  </header>
+
+  <!-- Filter Bar -->
+  <div class="filter-bar">
+    <button class="filter-btn active" data-week="all">전체 주차</button>
+    <button class="filter-btn" data-week="1">1주차 (道 / 周易)</button>
+    <button class="filter-btn" data-week="2">2주차 (德 / 書經)</button>
+    <button class="filter-btn" data-week="3">3주차 (樂 / 詩經)</button>
+  </div>
+
+  <!-- Nav Tabs -->
+  <div class="nav-tabs">
+    <button class="tab-btn active" data-tab="combo">
+      <span>🎯 콤보</span>
+    </button>
+    <button class="tab-btn" data-tab="typing">
+      <span>✍️ 타이핑</span>
+    </button>
+    <button class="tab-btn" data-tab="story">
+      <span>📖 스토리</span>
+    </button>
+    <button class="tab-btn" data-tab="notion">
+      <span>📝 토글</span>
+    </button>
+  </div>
+
+  <!-- 1. [1개념 다각도 콤보 모드] -->
+  <section id="combo-view" class="view-section active">
+    <div class="study-card">
+      <div class="badge-row">
+        <span class="badge" id="combo-concept-title">개념 로딩 중...</span>
+        <span class="counter-text" id="combo-concept-progress">개념 1/6</span>
+      </div>
+      
+      <div style="font-size:0.78rem; color:var(--accent-purple); font-weight:700;" id="combo-angle-tag">
+        변주 1/3: 자형 팩트 체크
+      </div>
+
+      <div class="question-text" id="combo-question">
+        질문이 로딩 중입니다...
+      </div>
+
+      <!-- Interaction Area (OX buttons, Multiple choices, or Typing input) -->
+      <div id="combo-interaction-area"></div>
+
+      <!-- Explanation Box -->
+      <div class="explanation-box" id="combo-explanation"></div>
+    </div>
+
+    <div class="action-row">
+      <button class="btn-action" id="combo-prev-concept">◀ 이전</button>
+      <button class="btn-action" id="combo-next-btn" style="background:var(--accent-purple);">다음 변주 ▶</button>
+    </div>
+  </section>
+
+  <!-- 2. [직접 타이핑 전용 모드] -->
+  <section id="typing-view" class="view-section">
+    <div class="study-card">
+      <div class="badge-row">
+        <span class="badge purple" id="typing-badge">직접 타이핑 훈련</span>
+        <span class="counter-text" id="typing-counter">1/6</span>
+      </div>
+
+      <div class="question-text" id="typing-question">
+        질문 로딩 중...
+      </div>
+
+      <div class="typing-box">
+        <div class="typing-hint" id="typing-hint-text">💡 힌트: 초성 확인</div>
+        <input type="text" id="typing-mode-input" class="typing-input" placeholder="키보드로 정답을 직접 입력하세요..." autocomplete="off">
+        <button class="btn-submit" id="typing-submit-btn">채점 및 해설 확인 (Enter)</button>
+      </div>
+
+      <div class="explanation-box" id="typing-explanation"></div>
+    </div>
+
+    <div style="text-align: right;">
+      <button class="btn-action" id="typing-next-btn">다음 타이핑 문제 ▶</button>
+    </div>
+  </section>
+
+  <!-- 3. [서사 스토리 모드] -->
+  <section id="story-view" class="view-section">
+    <div id="story-content-area" style="display:flex; flex-direction:column; gap:14px;">
+      <!-- Generated via app.js based on week filter -->
+    </div>
+  </section>
+
+  <!-- 4. [노션 스타일 터치 토글 뷰] -->
+  <section id="notion-view" class="view-section">
+    <div style="font-size:0.8rem; color:var(--text-sub); margin-bottom:4px;">
+      💡 각 항목을 터치하면 핵심 요약과 출제 변주 모음이 펼쳐집니다.
+    </div>
+    <div id="notion-accordion-list">
+      <!-- Generated via app.js -->
+    </div>
+  </section>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
